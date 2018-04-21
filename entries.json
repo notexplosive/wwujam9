@@ -1,0 +1,95 @@
+{
+  "nextEntryId": 18,
+  "nodes": [
+    {
+      "id": "4",
+      "name": "GLOBAL",
+      "type": "script"
+    },
+    {
+      "id": "12",
+      "name": "StartScreen",
+      "type": "script"
+    },
+    {
+      "id": "0",
+      "name": "Classes",
+      "type": null,
+      "children": [
+        {
+          "id": "7",
+          "name": "Game",
+          "type": "script"
+        },
+        {
+          "id": "13",
+          "name": "Player",
+          "type": "script"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "name": "Controls",
+      "type": null,
+      "children": [
+        {
+          "id": "1",
+          "name": "Controller",
+          "type": "script"
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "name": "MinigameTemplates",
+      "type": null,
+      "children": [
+        {
+          "id": "3",
+          "name": "Minigame",
+          "type": "script"
+        },
+        {
+          "id": "5",
+          "name": "MinigamePlayer",
+          "type": "script"
+        },
+        {
+          "id": "15",
+          "name": "MinigameHandler",
+          "type": "script"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Minigames",
+      "type": null,
+      "children": [
+        {
+          "id": "10",
+          "name": "TestMiniGame",
+          "type": "script"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "name": "Testing Components",
+      "type": null,
+      "children": [
+        {
+          "id": "8",
+          "name": "Testing Environment",
+          "type": "scene"
+        },
+        {
+          "id": "9",
+          "name": "TestBehavior",
+          "type": "script"
+        }
+      ]
+    }
+  ]
+}

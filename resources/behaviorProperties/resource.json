@@ -1,0 +1,22 @@
+{
+  "behaviors": {
+    "TestBehavior": {
+      "scriptId": "9",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "StartScreenBehavior": {
+      "scriptId": "12",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    },
+    "ControlBehavior": {
+      "scriptId": "18",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": []
+    }
+  }
+}
