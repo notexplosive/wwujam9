@@ -12,11 +12,53 @@
       "parentBehavior": null,
       "properties": []
     },
-    "ControlBehavior": {
-      "scriptId": "18",
+    "ObstacleBehavior": {
+      "scriptId": "19",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "width",
+          "type": "number"
+        },
+        {
+          "name": "height",
+          "type": "number"
+        },
+        {
+          "name": "canKillYou",
+          "type": "boolean"
+        },
+        {
+          "name": "isCollidable",
+          "type": "boolean"
+        },
+        {
+          "name": "life",
+          "type": "number"
+        }
+      ]
+    },
+    "PopTextBehavior": {
+      "scriptId": "28",
       "line": 0,
       "parentBehavior": null,
       "properties": []
+    },
+    "ScoreBoardBehavior": {
+      "scriptId": "43",
+      "line": 0,
+      "parentBehavior": null,
+      "properties": [
+        {
+          "name": "tick",
+          "type": "number"
+        },
+        {
+          "name": "nextGameCountdown",
+          "type": "number"
+        }
+      ]
     }
   }
 }

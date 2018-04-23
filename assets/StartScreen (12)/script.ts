@@ -1,16 +1,20 @@
 class StartScreenBehavior extends Sup.Behavior {
   awake() {
-    GAME.players = [];
+    this.actor.addBehavior(StartScreenDummyMiniGameBehavior).actor
+    GAME.startNewMiniGame(this.actor);
   }
 
   update() {
     for (let i = 0; i < 4; i++) {
-      if(Controller.wasButtonJustPressed( i, Controller.START_BUTTON ) && playerDoesNotExist(i)) {  
-        let player = new Player();
-        player.playerNumber = i + 1;
-        player.controllerIndex = i;
-        player.color = playerColors[i];
-        GAME.players.push(player);
+      if(Controller.wasButtonJustPressed( i, Controller.START_BUTTON ) && playerDoesNotExist(i)) {
+        let player = new Player(i);
+        let dummy = new Sup.Actor("dummy no " + i,GAME.currentMiniGame.actor);
+        dummy.setEulerZ(3 * Math.PI/2);
+        new Sup.SpriteRenderer(dummy,"TopDownPlayer");
+        dummy.addBehavior(MinigamePlayerBehavior).init(player,ControlStyle.TopDown,GAME.currentMiniGame);
+        dummy.getBehavior(TopDownBehavior).positionVector = (new Sup.Math.Vector2(-4,2.8 - (i * 1.8)));
+        
+        this.actor.getBehavior(StartScreenDummyMiniGameBehavior).addPlayer(dummy.getBehavior(MinigamePlayerBehavior));
       }
     }
   }
@@ -18,12 +22,13 @@ class StartScreenBehavior extends Sup.Behavior {
 Sup.registerBehavior(StartScreenBehavior);
 
 
-  function playerDoesNotExist(playerNumber:number) {
-    for(let i = 0; i < GAME.players.length; i++) {
-      if (GAME.players[i].playerNumber == (playerNumber + 1)) {
-        return false;
-      }
+function playerDoesNotExist(controllerIndex:number) {
+  for(let i = 0; i < GAME.players.length; i++) {
+    if (GAME.players[i].controllerIndex == controllerIndex) {
+      Sup.log("controller index " + i + " already in use");
+      return false;
     }
-    
-    return true;
   }
+
+  return true;
+}

@@ -1,5 +1,5 @@
 {
-  "nextEntryId": 18,
+  "nextEntryId": 57,
   "nodes": [
     {
       "id": "4",
@@ -7,9 +7,108 @@
       "type": "script"
     },
     {
-      "id": "12",
-      "name": "StartScreen",
-      "type": "script"
+      "id": "41",
+      "name": "Font",
+      "type": "font"
+    },
+    {
+      "id": "24",
+      "name": "TopDownPlayer",
+      "type": "sprite"
+    },
+    {
+      "id": "33",
+      "name": "FlyingPlayer",
+      "type": "sprite"
+    },
+    {
+      "id": "34",
+      "name": "PlatformPlayer",
+      "type": "sprite"
+    },
+    {
+      "id": "44",
+      "name": "Raindrop",
+      "type": "sprite"
+    },
+    {
+      "id": "45",
+      "name": "Hand",
+      "type": "sprite"
+    },
+    {
+      "id": "47",
+      "name": "RaindropShadow",
+      "type": "sprite"
+    },
+    {
+      "id": "53",
+      "name": "Music",
+      "type": null,
+      "children": [
+        {
+          "id": "54",
+          "name": "MinigameTheme1",
+          "type": "sound"
+        },
+        {
+          "id": "55",
+          "name": "Titlescreen",
+          "type": "sound"
+        },
+        {
+          "id": "56",
+          "name": "Transition",
+          "type": "sound"
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "name": "Background",
+      "type": null,
+      "children": [
+        {
+          "id": "30",
+          "name": "LilypadPool",
+          "type": "sprite"
+        },
+        {
+          "id": "39",
+          "name": "StartMenu",
+          "type": "sprite"
+        },
+        {
+          "id": "35",
+          "name": "LanternBackground",
+          "type": "sprite"
+        },
+        {
+          "id": "36",
+          "name": "LanternFlash",
+          "type": "sprite"
+        },
+        {
+          "id": "31",
+          "name": "LilypadOnly",
+          "type": "sprite"
+        },
+        {
+          "id": "32",
+          "name": "Flower",
+          "type": "sprite"
+        },
+        {
+          "id": "46",
+          "name": "PicnicBasket",
+          "type": "sprite"
+        },
+        {
+          "id": "50",
+          "name": "Kitchen",
+          "type": "sprite"
+        }
+      ]
     },
     {
       "id": "0",
@@ -25,6 +124,23 @@
           "id": "13",
           "name": "Player",
           "type": "script"
+        },
+        {
+          "id": "1",
+          "name": "Controller",
+          "type": "script"
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "name": "Polish",
+      "type": null,
+      "children": [
+        {
+          "id": "28",
+          "name": "PopText",
+          "type": "script"
         }
       ]
     },
@@ -34,8 +150,28 @@
       "type": null,
       "children": [
         {
-          "id": "1",
-          "name": "Controller",
+          "id": "18",
+          "name": "BaseControl",
+          "type": "script"
+        },
+        {
+          "id": "20",
+          "name": "TopDown",
+          "type": "script"
+        },
+        {
+          "id": "21",
+          "name": "Tank",
+          "type": "script"
+        },
+        {
+          "id": "22",
+          "name": "Platformer",
+          "type": "script"
+        },
+        {
+          "id": "23",
+          "name": "Flying",
           "type": "script"
         }
       ]
@@ -59,6 +195,16 @@
           "id": "15",
           "name": "MinigameHandler",
           "type": "script"
+        },
+        {
+          "id": "19",
+          "name": "Obstacle",
+          "type": "script"
+        },
+        {
+          "id": "43",
+          "name": "ScoreBoard",
+          "type": "script"
         }
       ]
     },
@@ -68,11 +214,41 @@
       "type": null,
       "children": [
         {
+          "id": "37",
+          "name": "StartScreenDummyMiniGame",
+          "type": "script"
+        },
+        {
           "id": "10",
           "name": "TestMiniGame",
           "type": "script"
+        },
+        {
+          "id": "26",
+          "name": "Sumo",
+          "type": "script"
+        },
+        {
+          "id": "38",
+          "name": "LanternGame",
+          "type": "script"
+        },
+        {
+          "id": "48",
+          "name": "Picnic",
+          "type": "script"
+        },
+        {
+          "id": "49",
+          "name": "JumpRope",
+          "type": "script"
         }
       ]
+    },
+    {
+      "id": "12",
+      "name": "StartScreen",
+      "type": "script"
     },
     {
       "id": "14",
@@ -80,16 +256,31 @@
       "type": null,
       "children": [
         {
-          "id": "8",
-          "name": "Testing Environment",
-          "type": "scene"
-        },
-        {
           "id": "9",
           "name": "TestBehavior",
           "type": "script"
         }
       ]
+    },
+    {
+      "id": "40",
+      "name": "STARTUP",
+      "type": "script"
+    },
+    {
+      "id": "42",
+      "name": "DraftScene",
+      "type": "scene"
+    },
+    {
+      "id": "51",
+      "name": "Thunder",
+      "type": "sound"
+    },
+    {
+      "id": "52",
+      "name": "Rain",
+      "type": "sound"
     }
   ]
 }
