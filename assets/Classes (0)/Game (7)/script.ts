@@ -5,7 +5,8 @@ class Game {
   gamesLeft:number;
   camera:Sup.Camera;
   scoreboard:ScoreBoardBehavior;
-  
+  currentMusicTrack:Sup.Audio.SoundPlayer;
+
   constructor(){
     this.players = [];
     this.gamesLeft = 5;
@@ -17,9 +18,23 @@ class Game {
     this.camera = new Sup.Camera(cameraActor);
     this.camera.setOrthographicMode(true);
     this.camera.setOrthographicScale(6.5);
+    
+    this.changeTrack("Titlescreen");
+  }
+
+  changeTrack(assetName:string){
+    if(this.currentMusicTrack && this.currentMusicTrack.isPlaying()){
+      this.currentMusicTrack.stop();
+    }
+    if(assetName == ""){
+      return;
+    }
+    this.currentMusicTrack = new Sup.Audio.SoundPlayer("Music/"+assetName);
+    this.currentMusicTrack.play();
   }
   
   startNewMiniGame(miniGame:Sup.Actor):boolean{
+    this.changeTrack("");
     if(this.scoreboard && !this.scoreboard.isDestroyed()){
       this.scoreboard.actor.destroy();
       this.scoreboard == null;
@@ -28,6 +43,16 @@ class Game {
       if(this.currentMiniGame && !this.currentMiniGame.actor.isDestroyed()){
         this.currentMiniGame.actor.destroy();
       }
+      
+      for(let player of this.players){
+        if(player.score == 0){
+          let act = new Sup.Actor("Score Screen");
+          act.addBehavior(EndScreenBehavior);
+          miniGame.destroy();
+          return false;
+        }
+      }
+      
       this.currentMiniGame = miniGame.getBehavior(MinigameBehavior);
       this.currentMiniGame.init();
       return true;
@@ -51,7 +76,8 @@ class Game {
   alert(text:string){
     let actor = new Sup.Actor("TextAlert");
     actor.setZ(3);
-    new Sup.TextRenderer(actor,text,"Font");
+    let rend = new Sup.TextRenderer(actor,text,"Font");
+    rend.setColor(new Sup.Color(0xFF9999));
     actor.addBehavior(PopTextBehavior);
   }
 }

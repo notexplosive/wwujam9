@@ -65,6 +65,7 @@ class JumpRopeBehavior extends MinigameBehavior {
       
       if(Controller.wasButtonJustPressed(this.players[i].gamePlayer.controllerIndex, Controller.A_BUTTON)){
         if(this.players[i].actor.getY() <= this.floorPosition){
+          Sup.Audio.playSound("Music/Jump");
           this.players[i].getControlBehavior().netVelocityVector = new Sup.Math.Vector2(0,.4);
           this.players[i].actor.setY(this.players[i].actor.getY() + this.players[i].getControlBehavior().netVelocityVector.y);
         }

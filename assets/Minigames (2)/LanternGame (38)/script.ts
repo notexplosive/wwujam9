@@ -1,5 +1,5 @@
 class LanternGameBehavior extends MinigameBehavior { 
-  instructions = ["Press A to flap","Avoid Pretty Light!"]
+  instructions = ["Press A to flap","Don't get dragged into the light!"]
   controlStyle = ControlStyle.Flying;
   backgroundSpritePath = "LanternBackground"
   lanternCenter:Sup.Math.Vector2[] = [new Sup.Math.Vector2(-0.4,2), new Sup.Math.Vector2(-0.4,0.2)];
@@ -20,6 +20,7 @@ class LanternGameBehavior extends MinigameBehavior {
   }
 
   update() {
+    this.lanternForce += .00001;
     if(this.flashTimer <= 0){
       this.getHandler().backgroundActor.spriteRenderer.setSprite("Background/LanternBackground");
     }else{
@@ -34,6 +35,7 @@ class LanternGameBehavior extends MinigameBehavior {
           this.flashTimer = 10;
           this.players[i].kill();
           this.flagForDead = true;
+          Sup.Audio.playSound("Music/Zap");
           break;
         }
       }

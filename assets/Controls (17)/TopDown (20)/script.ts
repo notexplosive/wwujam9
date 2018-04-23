@@ -9,15 +9,6 @@ class TopDownBehavior extends BaseControlBehavior {
     this.collideWithCollidableSolids();
     this.previousPositionVector = this.positionVector.clone();
     this.actor.setPosition(this.positionVector);
-    if(this.positionVector.x > 5.835){
-        this.positionVector.x = 5.7;
-      }else if(this.positionVector.x < -5.7){
-        this.positionVector.x = -5.7;
-      }else if(this.positionVector.y > 3.1){
-        this.positionVector.y = 3.1;
-      }else if(this.positionVector.y < -3.1){
-        this.positionVector.y = -3.1;
-      }
     
     // Handle turning
     let inputVec = new Sup.Math.Vector2(Controller.getXAxis(this.minigamePlayer.gamePlayer.controllerIndex),Controller.getYAxis(this.minigamePlayer.gamePlayer.controllerIndex));
@@ -32,6 +23,9 @@ class TopDownBehavior extends BaseControlBehavior {
   
   getFacingVector():Sup.Math.Vector2{
     return this.facingVector;
+  }
+  setFaceingVector(vector:Sup.Math.Vector2){
+    this.facingVector = vector;
   }
   
   private facingVector:Sup.Math.Vector2;

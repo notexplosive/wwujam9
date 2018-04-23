@@ -1,6 +1,8 @@
 class MinigamePlayerBehavior extends Behavior {
   public gamePlayer:Player;
   private controlBehavior:BaseControlBehavior;
+  private number:Sup.Actor;
+  isDashing:number;
   
   init(gamePlayer:Player,controlStyle:ControlStyle,minigame:MinigameBehavior) {
     this.gamePlayer = gamePlayer;
@@ -35,15 +37,27 @@ class MinigamePlayerBehavior extends Behavior {
     this.actor.spriteRenderer.setColor(new Sup.Color(this.gamePlayer.color));
   }
   
-  awake() {
+  awake(){
     Sup.log(this.actor.getName() + " created!");
-    // TODO: Map controlstyle to sprite
     new Sup.SpriteRenderer(this.actor,"TopDownPlayer");
+  }
+
+  start() {
+    this.number = new Sup.Actor("Number",this.actor);
+    this.number.setLocalZ(1);
+    let text = new Sup.TextRenderer(this.number,this.gamePlayer.playerNumber,"Font");
+    text.setOpacity(1);
+    text.setColor(this.actor.spriteRenderer.getColor());
+    this.number.setEulerZ(0);
   }
 
   update() {
     if(this.gamePlayer == null){
       Sup.log("You forgot to call init")
+    }
+    
+    if(GAME.currentMiniGame.ready()){
+      this.number.setVisible(false);
     }
   }
   
@@ -57,6 +71,8 @@ class MinigamePlayerBehavior extends Behavior {
     }else{
       GAME.alert("Player " + this.gamePlayer.playerNumber + " died!");
     }
+    
+    Sup.Input.vibrate(this.gamePlayer.playerNumber);
     
     GAME.currentMiniGame.killPlayer(this);
   }

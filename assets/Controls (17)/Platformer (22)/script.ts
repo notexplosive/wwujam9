@@ -7,7 +7,7 @@ class PlatformerBehavior extends BaseControlBehavior {
   awake() {
     super.awake();
     this.speed = 0.03;
-    this.jumpVelocity = 0.25;
+    this.jumpVelocity = 0.19;
     this.gravityVector = new Sup.Math.Vector2(0,-.0075);
     this.velocityDecay = 0.25;
     this.actor.spriteRenderer.setSprite('PlatformPlayer');
@@ -18,6 +18,11 @@ class PlatformerBehavior extends BaseControlBehavior {
   update() {
     if(GAME.currentMiniGame.ready()){
       
+      if(this.jumps == 0){
+        this.actor.spriteRenderer.setAnimation('Jump');
+      }else{
+        this.actor.spriteRenderer.setAnimation('Stand');
+      }
       this.netAccelerationVector.x = 0;
       this.netAccelerationVector.y = 0;
       this.netAccelerationVector.y = this.gravityVector.y;
@@ -36,6 +41,19 @@ class PlatformerBehavior extends BaseControlBehavior {
       
       this.positionVector.x += this.netVelocityVector.x;
       this.positionVector.y += this.netVelocityVector.y;
+      
+      if(this.positionVector.x < this.bounds.left){
+        this.positionVector.x = this.bounds.left;
+      }
+      if(this.positionVector.x > this.bounds.right){
+        this.positionVector.x = this.bounds.right;
+      }
+      if(this.positionVector.y > this.bounds.top){
+        this.positionVector.y = this.bounds.top;
+      }
+      if(this.positionVector.y < this.bounds.bottom){
+        this.positionVector.y = this.bounds.bottom;
+      }
 
       this.collideWithCollidableSolids();
       this.previousPositionVector = this.positionVector.clone();

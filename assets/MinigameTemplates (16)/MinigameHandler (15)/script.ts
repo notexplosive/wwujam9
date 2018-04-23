@@ -22,16 +22,19 @@ class MinigameHandlerBehavior extends Behavior {
   update() {
     this.frames++;
     
-    if(this.frames > 1 && this.frames % 60 == 0){
+    if(this.frames > 1 && this.frames % 90 == 0){
       if(this.miniGame.getInstructions().length > 0){
         let instruction = this.miniGame.getInstructions()[this.currentInstructionIndex++];
         if(instruction){
           GAME.alert(instruction);
         }else if(this.countdown > 0){
           GAME.alert(this.countdown+'!');
+          Sup.Audio.playSound("Music/Count")
           this.countdown--;
         }else if(this.countdown == 0){
           GAME.alert('GO!');
+          Sup.Audio.playSound("Music/Go")
+          GAME.changeTrack("Minigame");
           this.countdown = -1;
         }
       }else{
@@ -58,6 +61,7 @@ class MinigameHandlerBehavior extends Behavior {
   
   public miniGame:MinigameBehavior;
   public backgroundActor:Sup.Actor;
+
   
   private currentInstructionIndex:number;
   private frames:number;

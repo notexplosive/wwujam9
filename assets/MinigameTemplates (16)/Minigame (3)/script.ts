@@ -22,6 +22,7 @@ class MinigameBehavior extends Behavior {
   
   // TODO: handle ranking
   completeGame(){
+    GAME.changeTrack("Transition");
     if(this.bgPlayer && this.bgPlayer.isPlaying()){
       this.bgPlayer.stop();
     }
@@ -30,8 +31,11 @@ class MinigameBehavior extends Behavior {
     this.complete = true;
     
     if(this.winner){
-      Sup.log(this.winner.playerNumber + " gains a point")
-      this.winner.score++;
+      for(let player of GAME.players){
+        if(this.winner != player){
+          player.score--;
+        }
+      }
     }
     
     new Sup.Actor("Scoreboard").addBehavior(ScoreBoardBehavior);

@@ -12,7 +12,7 @@ class Player{
     Sup.log("Player has entered with controller index: " + controllerIndex);
     this.playerNumber = GAME.players.length + 1;
     this.controllerIndex = controllerIndex;
-    this.score = 0;
+    this.score = 5;
     this.color = playerColors[this.controllerIndex];
     
     GAME.alert("Player " + this.playerNumber + " joined!\nAs controller " + controllerIndex);

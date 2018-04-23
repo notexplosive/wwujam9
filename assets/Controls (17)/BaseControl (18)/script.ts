@@ -38,10 +38,10 @@ class BaseControlBehavior extends Behavior{
       top:false
     }
     this. bounds = {
-      top: 3.208,
-      left: -5.835,
-      right: 5.835,
-      bottom: -3.208
+      top: 3.1,
+      left: -5.7,
+      right: 5.7,
+      bottom: -3.1
   }
     
     
@@ -79,6 +79,19 @@ class BaseControlBehavior extends Behavior{
 
       this.positionVector.x += this.netVelocityVector.x;
       this.positionVector.y += this.netVelocityVector.y;
+      
+      if(this.positionVector.x < this.bounds.left){
+        this.positionVector.x = this.bounds.left;
+      }
+      if(this.positionVector.x > this.bounds.right){
+        this.positionVector.x = this.bounds.right;
+      }
+      if(this.positionVector.y > this.bounds.top){
+        this.positionVector.y = this.bounds.top;
+      }
+      if(this.positionVector.y < this.bounds.bottom){
+        this.positionVector.y = this.bounds.bottom;
+      }
       
       
     }

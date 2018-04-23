@@ -7,6 +7,10 @@ class ScoreBoardBehavior extends Sup.Behavior {
     }
     new Sup.TextRenderer(this.actor,scoreText,"Font").setSize(24);
     this.actor.textRenderer.setOpacity(0);
+    
+    let bg = new Sup.Actor("Background",this.actor);
+    bg.setZ(-5);
+    new Sup.SpriteRenderer(bg,"Background/Transition")
   }
 
   update() {
